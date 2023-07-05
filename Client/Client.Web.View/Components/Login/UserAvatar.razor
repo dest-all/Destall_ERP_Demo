@@ -1,0 +1,83 @@
+﻿@using Client.Web.View.Services;
+@using DestallMaterials.Blazor.Components.Universal;
+@using DestallMaterials.WheelProtection.Extensions.Strings;
+@using MudBlazor
+@using Protocol.Models.DataHolders;
+@using Protocol.Models;
+
+@inherits DisposableComponent
+
+@inject IAccountManager account
+
+<DestallMaterials.Blazor.Components.Universal.Containers.OuterClickSensitiveContainer OnOuterClick="async () => CloseContent()"
+                                                                                      Style="@Style">
+
+    @if (image.HasContent())
+    {
+        <MudAvatar Elevation="10" Image="@image" @onclick=OnClick>
+            @initials
+        </MudAvatar>
+    }
+    else if (initials.HasContent())
+    {
+        <MudAvatar Elevation="10" Image="@image" @onclick=OnClick>
+            @initials
+        </MudAvatar>
+    }
+    else if (icon.HasContent())
+    {
+        <MudIconButton Icon="@icon" OnClick="OnClick" Color="Color.Inherit" />
+    }
+    @if (ChildContent is not null && ContentOpen)
+    {
+        @ChildContent
+    }
+</DestallMaterials.Blazor.Components.Universal.Containers.OuterClickSensitiveContainer>
+
+
+@code {
+    [Parameter]
+    public IUserReadOnlyModel User { get; set; } = new UserModel
+        {
+            LoginName = "Incognito"
+        };
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string Style { get; set; }
+
+    [Parameter]
+    public bool ContentOpen { get; set; }
+
+    string icon => Icons.Material.Filled.Person;
+    string image => null;//"_content/Client.Web.View/incognito.png";
+    string initials => User?.Reference.IsEmpty() == false ? GetInitials(User.Reference.Representation) : "";
+
+    static string GetInitials(string name) => name.Split(" ").Select(w => w[0].ToString().ToUpper()).Join("");
+
+    void OnClick()
+    {
+        ContentOpen = !ContentOpen;
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if (firstRender)
+        {
+            BindToLifetime(account.SubscribeForPermissionsChange(p =>
+                {
+                    CloseContent();
+                }));
+        }
+    }
+
+    void CloseContent()
+    {
+        ContentOpen = false;
+        StateHasChanged();
+    }
+
+}

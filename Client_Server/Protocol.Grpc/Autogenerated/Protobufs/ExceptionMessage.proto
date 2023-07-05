@@ -1,0 +1,15 @@
+syntax = "proto3";
+    option csharp_namespace = "Protocol.Grpc.ProtoModels";
+    package Protocol.Grpc;
+
+    message ProtoException
+    {
+        uint32 Index = 1;
+        string Message = 2;
+    }
+
+    message ProtocolMessageAddin
+    {
+        ProtoException Error = 1;
+        string SessionKey = 2;
+    }

@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Web.Endpoints.Grpc\Web.Endpoints.Grpc.csproj" />
+    <ProjectReference Include="..\Web.Server.Primitive\Web.Server.Primitive.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,60 @@
+﻿@using Client.Communication;
+@using Client.Web.View.Services;
+@using MudBlazor;
+@using Protocol.Models.Transportables;
+@using Protocol.Exceptions;
+
+@using static Common.Phrases.Custom.Auth;
+
+@inject IBusinessServerActionInvokersNet client
+
+<MudCard Class="sign-in-card">
+    <MudForm @ref=Form Model="Model" ValidationDelay="1000">
+        <MudCardContent>
+            <MudTextField @bind-Value=Model.UserName For="@(() => Model.UserName)" MaxLength="25" Label="@Login" />
+            <MudTextField @bind-Value=Model.Password For="@(() => Model.Password)" MaxLength="25" Label="@Password" />
+            <MudCardActions>
+                <MudText Style="@invalidCredsMessageClass">
+                    @(InvalidCredentialsSupplied).
+                </MudText>
+                @if (OnSuccessfulAuthorisation != null)
+                {
+                    <MudButton OnClick="TrySignInAsync">
+                        @SignIn
+                    </MudButton>
+                }
+            </MudCardActions>
+        </MudCardContent>
+    </MudForm>
+</MudCard>
+
+
+@code {
+    MudForm Form;
+    FormModel Model = new FormModel();
+
+    async Task TrySignInAsync()
+    {
+        if (!Model.CanBeSent)
+        {
+            return;
+        }
+        IStartSessionResponseReadOnlyModel result;
+        try
+        {
+            result = await client.OpenActions.SessionActions.StartSession.CallAsync(Model.UserName, Model.Password);
+        }
+        catch (InvalidCredentialsHandledException credEx)
+        {
+            return;
+        }
+        await OnSuccessfulAuthorisation(result);
+    }
+
+    string invalidCredsMessageClass => "";
+
+    [Parameter]
+    [EditorRequired]
+    public Func<IStartSessionResponseReadOnlyModel, Task> OnSuccessfulAuthorisation { get; set; }
+
+}

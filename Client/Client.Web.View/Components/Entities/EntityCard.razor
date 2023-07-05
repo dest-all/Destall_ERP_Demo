@@ -1,0 +1,94 @@
+﻿@using Client.Web.View.Components.Universal;
+@using Protocol.Models.Entities;
+@using System.Diagnostics;
+@using DestallMaterials.Blazor.Components.Universal;
+
+@inherits DisposableComponent
+@typeparam TItem
+
+@namespace Client.Web.View.Components.Entities
+
+
+@code {
+
+    [Parameter]
+    [EditorRequired]
+    public TItem Item { get; set; }
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public string Style { get; set; }
+
+    [Parameter]
+    public string Class { get; set; }
+
+    bool _collapsed = true;
+    [Parameter]
+    public bool Collapsed
+    {
+        get => _collapsed;
+        set
+        {
+            _collapsed = value;
+            OnCollapsedChanged(_collapsed);
+        }
+    }
+
+    protected bool Editable => !Disabled;
+
+    [Parameter]
+    public IEnumerable<ButtonConfiguration> Buttons { get; set; } = Array.Empty<ButtonConfiguration>();
+
+    [Parameter]
+    public IEnumerable<int> PropertiesOrder { get; set; }
+
+    [Parameter]
+    public IPermissionsReadOnlyModel Permissions { get; set; } = new PermissionsModel();
+
+    [Parameter]
+    public bool ShowHeader { get; set; } = true;
+
+    [Parameter]
+    public Func<Task> OnChange { get; set; } = async () => { };
+
+    [Parameter]
+    public Action<bool> OnCollapsedChanged { get; set; } = c => { };
+
+    [Parameter]
+    public Func<Task> OnDeleted { get; set; } = async () => { };
+
+    protected string cardClass => $"{Class} entity-card";
+
+    protected bool Expanded { get => !Collapsed; set => Collapsed = !value; }
+
+    public void SubscribeForItemChange(Func<TItem, Task> onItemChange)
+    {
+
+    }
+
+    protected string _label;
+
+    protected bool _deleted;
+
+    Stopwatch _stopwatch = Stopwatch.StartNew();
+    protected override bool ShouldRender()
+    {
+        var result = base.ShouldRender();
+
+        if (result)
+        {
+            _stopwatch = Stopwatch.StartNew();
+        }
+
+        return result;
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        _stopwatch.Stop();
+        base.OnAfterRender(firstRender);
+        //Console.WriteLine($"{this.GetType().FullName}: rendering card for {Item} took {_stopwatch.ElapsedMilliseconds} ms.");
+    }
+}

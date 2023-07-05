@@ -1,0 +1,34 @@
+@using Client.Web.Application;
+@using Client.Web.Application.Shared
+@using System.Reflection
+@using Client.Web.View.Services;
+@using DestallMaterials.Blazor.Services;
+
+@inject IAccountManager account
+@inject IGlobalClickInvoker globalClick
+
+<DestallMaterials.Blazor.Components.Universal.Containers.ClickableArea OnClick="async (e) => await globalClick.FireGlobalMouseClickEvent(e)">
+    <Router AppAssembly="@typeof(Application).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>
+            <PageTitle>Not found</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p role="alert">Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</DestallMaterials.Blazor.Components.Universal.Containers.ClickableArea>
+
+@code {
+    [Parameter]
+    public Assembly AppAssembly { get; set; }
+
+    [Parameter]
+    public Type MainLayout { get; set; }
+
+}
+
+

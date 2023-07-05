@@ -1,0 +1,130 @@
+﻿@using DestallMaterials.WheelProtection.Extensions.Enumerables;
+@using DestallMaterials.WheelProtection.Extensions.Tasks;
+@using MudBlazor;
+
+
+<div class="@divClass">
+    <div class="options">
+        @if (Options.IsEmpty())
+        {
+            <span>-</span>
+            return;
+        }
+
+        <br />
+        <span class="secondary next-option" style="@hiddenIf(!anyNext)">@next</span>
+
+        <span class="value">@Options[Value]</span>
+        
+        <span class="secondary previous-option" style="@hiddenIf(!anyPrevious)">@previous</span>
+        <br />
+        
+    </div>
+    <div class="switchers" style="@hiddenIf(Disabled)">
+        <MudPopover AnchorOrigin="@popoverLocation" Open=true TransformOrigin="@transform">
+            <span>
+                @popoverContent
+            </span>
+        </MudPopover>
+        <MudBlazor.MudIconButton Icon="@Icons.Material.Outlined.ArrowUpward" Size="Size.Small" OnClick="ClickUpAsync" Disabled=!canClickUp />
+        <br />
+        <MudBlazor.MudIconButton Icon="@Icons.Material.Outlined.ArrowDownward" Size="Size.Small" OnClick="ClickDownAsync" Disabled=!canClickDown />
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public ushort Value { get; set; }
+
+    [Parameter]
+    [EditorRequired]
+    public Func<ushort, Task<string>> ChangeStatus { get; set; }
+
+    [Parameter]
+    [EditorRequired]
+    public IReadOnlyList<string> Options { get; set; } = Array.Empty<string>();
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public string Style { get; set; }
+
+    [Parameter]
+    public string CssClass { get; set; }
+
+    [Parameter]
+    public Func<ushort, Task> OnStatusChanged { get; set; } = async n => { };
+
+    
+    string popoverContent;
+    bool showPopover => popoverContent.HasContent();
+    Origin popoverLocation;
+    Origin transform => popoverLocation == Origin.TopRight ? Origin.TopLeft : Origin.BottomLeft;
+    static readonly TimeSpan waitOnError = TimeSpan.FromSeconds(5);
+
+
+    void ShowPopover(string message, Origin at)
+    {
+        popoverContent = message;
+        popoverLocation = at;
+        StateHasChanged();
+        Task.Delay(waitOnError).Then(() => {
+            popoverContent = "";
+            inProgress = false;
+            StateHasChanged();
+        });
+    }
+
+
+    string divClass => $"status-input {CssClass}";
+
+    string hiddenIf(bool condition) => condition ? "visibility: hidden" : "";
+
+    string next => anyNext ? Options[Value + 1] : "hidden text";
+    string previous => anyPrevious ? Options[Value - 1] : "hidden text";
+
+    bool anyNext => Options.Count > Value + 1;
+    bool anyPrevious => Value > 0;
+
+    bool inProgress;
+
+    bool canClickUp => anyNext && !inProgress;
+    bool canClickDown => anyPrevious && !inProgress;
+
+    async Task ClickUpAsync()
+    {
+        var targetValue = (ushort)(Value + 1);
+        inProgress = true;
+        StateHasChanged();
+        var cantChangeReason = await ChangeStatus(targetValue);
+        if (cantChangeReason.IsEmpty())
+        {
+            Value = targetValue;
+            await OnStatusChanged(Value);
+            inProgress = false;
+        }
+        else
+        {
+            ShowPopover(cantChangeReason, Origin.TopRight);
+        }
+    }
+
+    async Task ClickDownAsync()
+    {
+        var targetValue = (ushort)(Value - 1);
+        inProgress = true;
+        StateHasChanged();
+        var cantChangeReason = await ChangeStatus(targetValue);
+        if (cantChangeReason.IsEmpty())
+        {
+            Value = targetValue;
+            await OnStatusChanged(Value);
+            inProgress = false;
+        }
+        else
+        {
+            ShowPopover(cantChangeReason, Origin.BottomRight);
+        }
+    }
+}

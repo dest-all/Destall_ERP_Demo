@@ -1,0 +1,2209 @@
+syntax = "proto3";
+    import "google/protobuf/timestamp.proto";
+    import "ExceptionMessage.proto";
+    import "PrimitiveMessages.proto";
+
+    option csharp_namespace = "Protocol.Grpc.ProtoModels";
+
+    package Protocol.Grpc;
+
+
+            message UserReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message UserReferenceMessage
+            {
+                UserReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message UserReferenceList
+            {
+repeated UserReference Message = 1;            }
+        
+            message UserReferenceListMessage
+            {
+                UserReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CustomerReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message CustomerReferenceMessage
+            {
+                CustomerReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CustomerReferenceList
+            {
+repeated CustomerReference Message = 1;            }
+        
+            message CustomerReferenceListMessage
+            {
+                CustomerReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SupplierReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message SupplierReferenceMessage
+            {
+                SupplierReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SupplierReferenceList
+            {
+repeated SupplierReference Message = 1;            }
+        
+            message SupplierReferenceListMessage
+            {
+                SupplierReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CurrencyReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message CurrencyReferenceMessage
+            {
+                CurrencyReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CurrencyReferenceList
+            {
+repeated CurrencyReference Message = 1;            }
+        
+            message CurrencyReferenceListMessage
+            {
+                CurrencyReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message GoodReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message GoodReferenceMessage
+            {
+                GoodReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message GoodReferenceList
+            {
+repeated GoodReference Message = 1;            }
+        
+            message GoodReferenceListMessage
+            {
+                GoodReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message EmployeeReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message EmployeeReferenceMessage
+            {
+                EmployeeReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message EmployeeReferenceList
+            {
+repeated EmployeeReference Message = 1;            }
+        
+            message EmployeeReferenceListMessage
+            {
+                EmployeeReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message DepositReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message DepositReferenceMessage
+            {
+                DepositReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message DepositReferenceList
+            {
+repeated DepositReference Message = 1;            }
+        
+            message DepositReferenceListMessage
+            {
+                DepositReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingPaymentReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message IncomingPaymentReferenceMessage
+            {
+                IncomingPaymentReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingPaymentReferenceList
+            {
+repeated IncomingPaymentReference Message = 1;            }
+        
+            message IncomingPaymentReferenceListMessage
+            {
+                IncomingPaymentReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingPaymentReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message OutgoingPaymentReferenceMessage
+            {
+                OutgoingPaymentReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingPaymentReferenceList
+            {
+repeated OutgoingPaymentReference Message = 1;            }
+        
+            message OutgoingPaymentReferenceListMessage
+            {
+                OutgoingPaymentReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StaffPaycheckReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message StaffPaycheckReferenceMessage
+            {
+                StaffPaycheckReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StaffPaycheckReferenceList
+            {
+repeated StaffPaycheckReference Message = 1;            }
+        
+            message StaffPaycheckReferenceListMessage
+            {
+                StaffPaycheckReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message WithdrawalReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message WithdrawalReferenceMessage
+            {
+                WithdrawalReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message WithdrawalReferenceList
+            {
+repeated WithdrawalReference Message = 1;            }
+        
+            message WithdrawalReferenceListMessage
+            {
+                WithdrawalReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message IncomingOrderReferenceMessage
+            {
+                IncomingOrderReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderReferenceList
+            {
+repeated IncomingOrderReference Message = 1;            }
+        
+            message IncomingOrderReferenceListMessage
+            {
+                IncomingOrderReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderReference
+            {
+ int64 Id = 1; string Representation = 2;            }
+        
+            message OutgoingOrderReferenceMessage
+            {
+                OutgoingOrderReference Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderReferenceList
+            {
+repeated OutgoingOrderReference Message = 1;            }
+        
+            message OutgoingOrderReferenceListMessage
+            {
+                OutgoingOrderReferenceList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message UserModel
+            {
+ string LoginName = 1; UserReference Reference = 2; PermissionsModel Permissions = 3;            }
+        
+            message UserModelMessage
+            {
+                UserModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CustomerModel
+            {
+ string Name = 1; CustomerReference Reference = 2;            }
+        
+            message CustomerModelMessage
+            {
+                CustomerModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SupplierModel
+            {
+ string Name = 1; SupplierReference Reference = 2;            }
+        
+            message SupplierModelMessage
+            {
+                SupplierModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CurrencyModel
+            {
+ string Name = 1; bool Primary = 2; CurrencyReference Reference = 3;            }
+        
+            message CurrencyModelMessage
+            {
+                CurrencyModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message GoodModel
+            {
+ string Name = 1; GoodReference Reference = 2;            }
+        
+            message GoodModelMessage
+            {
+                GoodModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message EmployeeModel
+            {
+ string FirstName = 1; string LastName = 2; EmployeeReference Reference = 3;            }
+        
+            message EmployeeModelMessage
+            {
+                EmployeeModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message DepositModel
+            {
+ double Sum = 1; string Number = 2; uint32 Status = 3; DepositReference Reference = 4; CurrencyReference Currency = 5; EmployeeReference Accountable = 6;            }
+        
+            message DepositModelMessage
+            {
+                DepositModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingPaymentModel
+            {
+ double Sum = 1; string Number = 2; uint32 Status = 3; IncomingPaymentReference Reference = 4; IncomingOrderReference Order = 5; CustomerReference Payer = 6; CurrencyReference Currency = 7; EmployeeReference Accountable = 8;            }
+        
+            message IncomingPaymentModelMessage
+            {
+                IncomingPaymentModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingPaymentModel
+            {
+ double Sum = 1; string Number = 2; uint32 Status = 3; OutgoingPaymentReference Reference = 4; OutgoingOrderReference Order = 5; SupplierReference Receiver = 6; CurrencyReference Currency = 7; EmployeeReference Accountable = 8;            }
+        
+            message OutgoingPaymentModelMessage
+            {
+                OutgoingPaymentModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StaffPaycheckModel
+            {
+ double CashPart = 1; double BankTransferPart = 2; double Withheld = 3; google.protobuf.Timestamp PeriodStart = 4; google.protobuf.Timestamp PeriodEnd = 5; double Sum = 6; string Number = 7; uint32 Status = 8; StaffPaycheckReference Reference = 9; EmployeeReference PaidTo = 10; CurrencyReference Currency = 11; EmployeeReference Accountable = 12;            }
+        
+            message StaffPaycheckModelMessage
+            {
+                StaffPaycheckModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message WithdrawalModel
+            {
+ double Sum = 1; string Number = 2; uint32 Status = 3; WithdrawalReference Reference = 4; CurrencyReference Currency = 5; EmployeeReference Accountable = 6;            }
+        
+            message WithdrawalModelMessage
+            {
+                WithdrawalModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderModel
+            {
+ string Number = 1; uint32 Status = 2; IncomingOrderReference Reference = 3;repeated IncomingOrderLineModel GoodsSold = 4; CustomerReference Customer = 5; CurrencyReference Currency = 6; EmployeeReference Accountable = 7;            }
+        
+            message IncomingOrderModelMessage
+            {
+                IncomingOrderModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderLineModel
+            {
+ double Quantity = 1; double Price = 2; IncomingOrderReference IncomingOrder = 3; GoodReference Good = 4;            }
+        
+            message IncomingOrderLineModelMessage
+            {
+                IncomingOrderLineModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderModel
+            {
+ string Number = 1; uint32 Status = 2; OutgoingOrderReference Reference = 3;repeated OutgoingOrderLineModel GoodsBought = 4; SupplierReference Supplier = 5; CurrencyReference Currency = 6; EmployeeReference Accountable = 7;            }
+        
+            message OutgoingOrderModelMessage
+            {
+                OutgoingOrderModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderLineModel
+            {
+ double Quantity = 1; double Price = 2; GoodReference Good = 3;            }
+        
+            message OutgoingOrderLineModelMessage
+            {
+                OutgoingOrderLineModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message PermissionsModel
+            {
+ bool Currency_Edit = 1; bool Currency_Read = 2; bool Currency_Delete = 3; bool Customer_Edit = 4; bool Customer_Read = 5; bool Customer_Delete = 6; bool Deposit_Edit = 7; bool Deposit_Read = 8; bool Deposit_Delete = 9; bool Employee_Edit = 10; bool Employee_Read = 11; bool Employee_Delete = 12; bool Good_Edit = 13; bool Good_Read = 14; bool Good_Delete = 15; bool IncomingOrder_Edit = 16; bool IncomingOrder_Read = 17; bool IncomingOrder_Delete = 18; bool IncomingPayment_Edit = 19; bool IncomingPayment_Read = 20; bool IncomingPayment_Delete = 21; bool OutgoingOrder_Edit = 22; bool OutgoingOrder_Read = 23; bool OutgoingOrder_Delete = 24; bool OutgoingPayment_Edit = 25; bool OutgoingPayment_Read = 26; bool OutgoingPayment_Delete = 27; bool StaffPaycheck_Edit = 28; bool StaffPaycheck_Read = 29; bool StaffPaycheck_Delete = 30; bool Supplier_Edit = 31; bool Supplier_Read = 32; bool Supplier_Delete = 33; bool User_Edit = 34; bool User_Read = 35; bool User_Delete = 36; bool Withdrawal_Edit = 37; bool Withdrawal_Read = 38; bool Withdrawal_Delete = 39; bool CalculateEmployess = 40; bool GetMaxValues = 41; bool GetMinValues = 42; bool Reports_Financial = 43; bool Deposit_ChangeStatus_MoveDown_ToDraft = 44; bool Deposit_ChangeStatus_MoveDown_ToSubmitted = 45; bool Deposit_ChangeStatus_MoveDown_ToReady = 46; bool Deposit_ChangeStatus_MoveDown_ToExecuted = 47; bool Deposit_ChangeStatus_MoveUp_ToSubmitted = 48; bool Deposit_ChangeStatus_MoveUp_ToReady = 49; bool Deposit_ChangeStatus_MoveUp_ToExecuted = 50; bool Deposit_ChangeStatus_MoveUp_ToClosed = 51; bool IncomingPayment_ChangeStatus_MoveDown_ToDraft = 52; bool IncomingPayment_ChangeStatus_MoveDown_ToSubmitted = 53; bool IncomingPayment_ChangeStatus_MoveDown_ToReady = 54; bool IncomingPayment_ChangeStatus_MoveDown_ToExecuted = 55; bool IncomingPayment_ChangeStatus_MoveUp_ToSubmitted = 56; bool IncomingPayment_ChangeStatus_MoveUp_ToReady = 57; bool IncomingPayment_ChangeStatus_MoveUp_ToExecuted = 58; bool IncomingPayment_ChangeStatus_MoveUp_ToClosed = 59; bool OutgoingPayment_ChangeStatus_MoveDown_ToDraft = 60; bool OutgoingPayment_ChangeStatus_MoveDown_ToSubmitted = 61; bool OutgoingPayment_ChangeStatus_MoveDown_ToReady = 62; bool OutgoingPayment_ChangeStatus_MoveDown_ToExecuted = 63; bool OutgoingPayment_ChangeStatus_MoveUp_ToSubmitted = 64; bool OutgoingPayment_ChangeStatus_MoveUp_ToReady = 65; bool OutgoingPayment_ChangeStatus_MoveUp_ToExecuted = 66; bool OutgoingPayment_ChangeStatus_MoveUp_ToClosed = 67; bool StaffPaycheck_ChangeStatus_MoveDown_ToDraft = 68; bool StaffPaycheck_ChangeStatus_MoveDown_ToSubmitted = 69; bool StaffPaycheck_ChangeStatus_MoveDown_ToReady = 70; bool StaffPaycheck_ChangeStatus_MoveDown_ToExecuted = 71; bool StaffPaycheck_ChangeStatus_MoveUp_ToSubmitted = 72; bool StaffPaycheck_ChangeStatus_MoveUp_ToReady = 73; bool StaffPaycheck_ChangeStatus_MoveUp_ToExecuted = 74; bool StaffPaycheck_ChangeStatus_MoveUp_ToClosed = 75; bool Withdrawal_ChangeStatus_MoveDown_ToDraft = 76; bool Withdrawal_ChangeStatus_MoveDown_ToSubmitted = 77; bool Withdrawal_ChangeStatus_MoveDown_ToReady = 78; bool Withdrawal_ChangeStatus_MoveDown_ToExecuted = 79; bool Withdrawal_ChangeStatus_MoveUp_ToSubmitted = 80; bool Withdrawal_ChangeStatus_MoveUp_ToReady = 81; bool Withdrawal_ChangeStatus_MoveUp_ToExecuted = 82; bool Withdrawal_ChangeStatus_MoveUp_ToClosed = 83; bool IncomingOrder_ChangeStatus_MoveDown_ToDraft = 84; bool IncomingOrder_ChangeStatus_MoveDown_ToSubmitted = 85; bool IncomingOrder_ChangeStatus_MoveDown_ToReady = 86; bool IncomingOrder_ChangeStatus_MoveDown_ToExecuted = 87; bool IncomingOrder_ChangeStatus_MoveUp_ToSubmitted = 88; bool IncomingOrder_ChangeStatus_MoveUp_ToReady = 89; bool IncomingOrder_ChangeStatus_MoveUp_ToExecuted = 90; bool IncomingOrder_ChangeStatus_MoveUp_ToClosed = 91; bool OutgoingOrder_ChangeStatus_MoveDown_ToDraft = 92; bool OutgoingOrder_ChangeStatus_MoveDown_ToSubmitted = 93; bool OutgoingOrder_ChangeStatus_MoveDown_ToReady = 94; bool OutgoingOrder_ChangeStatus_MoveDown_ToExecuted = 95; bool OutgoingOrder_ChangeStatus_MoveUp_ToSubmitted = 96; bool OutgoingOrder_ChangeStatus_MoveUp_ToReady = 97; bool OutgoingOrder_ChangeStatus_MoveUp_ToExecuted = 98; bool OutgoingOrder_ChangeStatus_MoveUp_ToClosed = 99; bool TechnicalAdministrating = 100;            }
+        
+            message PermissionsModelMessage
+            {
+                PermissionsModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message AccountEntryModel
+            {
+ double SumPayable = 1; double SumReceivable = 2; uint32 Status = 3; int64 ActorId = 4; google.protobuf.Timestamp RegisteredAt = 5; CurrencyReference Currency = 6; SupplierReference Creditor = 7; CustomerReference Debtor = 8;            }
+        
+            message AccountEntryModelMessage
+            {
+                AccountEntryModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CashEntryModel
+            {
+ double Added = 1; double Reserved = 2; uint32 Status = 3; int64 ActorId = 4; google.protobuf.Timestamp RegisteredAt = 5; CurrencyReference Currency = 6;            }
+        
+            message CashEntryModelMessage
+            {
+                CashEntryModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SalarySettlementEntryModel
+            {
+ double Paid = 1; double Accrued = 2; uint32 Status = 3; int64 ActorId = 4; google.protobuf.Timestamp RegisteredAt = 5; EmployeeReference PaidTo = 6;            }
+        
+            message SalarySettlementEntryModelMessage
+            {
+                SalarySettlementEntryModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StockEntryModel
+            {
+ double Added = 1; double Reserved = 2; uint32 Status = 3; int64 ActorId = 4; google.protobuf.Timestamp RegisteredAt = 5; GoodReference Good = 6;            }
+        
+            message StockEntryModelMessage
+            {
+                StockEntryModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message AccountEntryFilterModel
+            {
+ NumberFilterModel SumPayable = 1; NumberFilterModel SumReceivable = 2; NumberFilterModel Status = 3; NumberFilterModel ActorId = 4; DateTimeFilterModel RegisteredAt = 5; ReferenceFilterModel Currency = 6; ReferenceFilterModel Creditor = 7; ReferenceFilterModel Debtor = 8;            }
+        
+            message AccountEntryFilterModelMessage
+            {
+                AccountEntryFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CashEntryFilterModel
+            {
+ NumberFilterModel Added = 1; NumberFilterModel Reserved = 2; NumberFilterModel Status = 3; NumberFilterModel ActorId = 4; DateTimeFilterModel RegisteredAt = 5; ReferenceFilterModel Currency = 6;            }
+        
+            message CashEntryFilterModelMessage
+            {
+                CashEntryFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CurrencyFilterModel
+            {
+ StringFilterModel Name = 1; BooleanFilterModel Primary = 2; ReferenceFilterModel Reference = 3;            }
+        
+            message CurrencyFilterModelMessage
+            {
+                CurrencyFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CustomerFilterModel
+            {
+ StringFilterModel Name = 1; ReferenceFilterModel Reference = 2;            }
+        
+            message CustomerFilterModelMessage
+            {
+                CustomerFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message DepositFilterModel
+            {
+ NumberFilterModel Sum = 1; StringFilterModel Number = 2; NumberFilterModel Status = 3; ReferenceFilterModel Reference = 4; ReferenceFilterModel Currency = 5; ReferenceFilterModel Accountable = 6;            }
+        
+            message DepositFilterModelMessage
+            {
+                DepositFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message EmployeeFilterModel
+            {
+ StringFilterModel FirstName = 1; StringFilterModel LastName = 2; ReferenceFilterModel Reference = 3;            }
+        
+            message EmployeeFilterModelMessage
+            {
+                EmployeeFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message GoodFilterModel
+            {
+ StringFilterModel Name = 1; ReferenceFilterModel Reference = 2;            }
+        
+            message GoodFilterModelMessage
+            {
+                GoodFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderFilterModel
+            {
+ StringFilterModel Number = 1; NumberFilterModel Status = 2; ReferenceFilterModel Reference = 3; CollectionFilterModel GoodsSold = 4; ReferenceFilterModel Customer = 5; ReferenceFilterModel Currency = 6; ReferenceFilterModel Accountable = 7;            }
+        
+            message IncomingOrderFilterModelMessage
+            {
+                IncomingOrderFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderLineFilterModel
+            {
+ NumberFilterModel Quantity = 1; NumberFilterModel Price = 2; ReferenceFilterModel IncomingOrder = 3; ReferenceFilterModel Good = 4;            }
+        
+            message IncomingOrderLineFilterModelMessage
+            {
+                IncomingOrderLineFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingPaymentFilterModel
+            {
+ NumberFilterModel Sum = 1; StringFilterModel Number = 2; NumberFilterModel Status = 3; ReferenceFilterModel Reference = 4; ReferenceFilterModel Order = 5; ReferenceFilterModel Payer = 6; ReferenceFilterModel Currency = 7; ReferenceFilterModel Accountable = 8;            }
+        
+            message IncomingPaymentFilterModelMessage
+            {
+                IncomingPaymentFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderFilterModel
+            {
+ StringFilterModel Number = 1; NumberFilterModel Status = 2; ReferenceFilterModel Reference = 3; CollectionFilterModel GoodsBought = 4; ReferenceFilterModel Supplier = 5; ReferenceFilterModel Currency = 6; ReferenceFilterModel Accountable = 7;            }
+        
+            message OutgoingOrderFilterModelMessage
+            {
+                OutgoingOrderFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderLineFilterModel
+            {
+ NumberFilterModel Quantity = 1; NumberFilterModel Price = 2; ReferenceFilterModel Good = 3;            }
+        
+            message OutgoingOrderLineFilterModelMessage
+            {
+                OutgoingOrderLineFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingPaymentFilterModel
+            {
+ NumberFilterModel Sum = 1; StringFilterModel Number = 2; NumberFilterModel Status = 3; ReferenceFilterModel Reference = 4; ReferenceFilterModel Order = 5; ReferenceFilterModel Receiver = 6; ReferenceFilterModel Currency = 7; ReferenceFilterModel Accountable = 8;            }
+        
+            message OutgoingPaymentFilterModelMessage
+            {
+                OutgoingPaymentFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message PermissionsFilterModel
+            {
+ BooleanFilterModel Currency_Edit = 1; BooleanFilterModel Currency_Read = 2; BooleanFilterModel Currency_Delete = 3; BooleanFilterModel Customer_Edit = 4; BooleanFilterModel Customer_Read = 5; BooleanFilterModel Customer_Delete = 6; BooleanFilterModel Deposit_Edit = 7; BooleanFilterModel Deposit_Read = 8; BooleanFilterModel Deposit_Delete = 9; BooleanFilterModel Employee_Edit = 10; BooleanFilterModel Employee_Read = 11; BooleanFilterModel Employee_Delete = 12; BooleanFilterModel Good_Edit = 13; BooleanFilterModel Good_Read = 14; BooleanFilterModel Good_Delete = 15; BooleanFilterModel IncomingOrder_Edit = 16; BooleanFilterModel IncomingOrder_Read = 17; BooleanFilterModel IncomingOrder_Delete = 18; BooleanFilterModel IncomingPayment_Edit = 19; BooleanFilterModel IncomingPayment_Read = 20; BooleanFilterModel IncomingPayment_Delete = 21; BooleanFilterModel OutgoingOrder_Edit = 22; BooleanFilterModel OutgoingOrder_Read = 23; BooleanFilterModel OutgoingOrder_Delete = 24; BooleanFilterModel OutgoingPayment_Edit = 25; BooleanFilterModel OutgoingPayment_Read = 26; BooleanFilterModel OutgoingPayment_Delete = 27; BooleanFilterModel StaffPaycheck_Edit = 28; BooleanFilterModel StaffPaycheck_Read = 29; BooleanFilterModel StaffPaycheck_Delete = 30; BooleanFilterModel Supplier_Edit = 31; BooleanFilterModel Supplier_Read = 32; BooleanFilterModel Supplier_Delete = 33; BooleanFilterModel User_Edit = 34; BooleanFilterModel User_Read = 35; BooleanFilterModel User_Delete = 36; BooleanFilterModel Withdrawal_Edit = 37; BooleanFilterModel Withdrawal_Read = 38; BooleanFilterModel Withdrawal_Delete = 39; BooleanFilterModel CalculateEmployess = 40; BooleanFilterModel GetMaxValues = 41; BooleanFilterModel GetMinValues = 42; BooleanFilterModel Reports_Financial = 43; BooleanFilterModel Deposit_ChangeStatus_MoveDown_ToDraft = 44; BooleanFilterModel Deposit_ChangeStatus_MoveDown_ToSubmitted = 45; BooleanFilterModel Deposit_ChangeStatus_MoveDown_ToReady = 46; BooleanFilterModel Deposit_ChangeStatus_MoveDown_ToExecuted = 47; BooleanFilterModel Deposit_ChangeStatus_MoveUp_ToSubmitted = 48; BooleanFilterModel Deposit_ChangeStatus_MoveUp_ToReady = 49; BooleanFilterModel Deposit_ChangeStatus_MoveUp_ToExecuted = 50; BooleanFilterModel Deposit_ChangeStatus_MoveUp_ToClosed = 51; BooleanFilterModel IncomingPayment_ChangeStatus_MoveDown_ToDraft = 52; BooleanFilterModel IncomingPayment_ChangeStatus_MoveDown_ToSubmitted = 53; BooleanFilterModel IncomingPayment_ChangeStatus_MoveDown_ToReady = 54; BooleanFilterModel IncomingPayment_ChangeStatus_MoveDown_ToExecuted = 55; BooleanFilterModel IncomingPayment_ChangeStatus_MoveUp_ToSubmitted = 56; BooleanFilterModel IncomingPayment_ChangeStatus_MoveUp_ToReady = 57; BooleanFilterModel IncomingPayment_ChangeStatus_MoveUp_ToExecuted = 58; BooleanFilterModel IncomingPayment_ChangeStatus_MoveUp_ToClosed = 59; BooleanFilterModel OutgoingPayment_ChangeStatus_MoveDown_ToDraft = 60; BooleanFilterModel OutgoingPayment_ChangeStatus_MoveDown_ToSubmitted = 61; BooleanFilterModel OutgoingPayment_ChangeStatus_MoveDown_ToReady = 62; BooleanFilterModel OutgoingPayment_ChangeStatus_MoveDown_ToExecuted = 63; BooleanFilterModel OutgoingPayment_ChangeStatus_MoveUp_ToSubmitted = 64; BooleanFilterModel OutgoingPayment_ChangeStatus_MoveUp_ToReady = 65; BooleanFilterModel OutgoingPayment_ChangeStatus_MoveUp_ToExecuted = 66; BooleanFilterModel OutgoingPayment_ChangeStatus_MoveUp_ToClosed = 67; BooleanFilterModel StaffPaycheck_ChangeStatus_MoveDown_ToDraft = 68; BooleanFilterModel StaffPaycheck_ChangeStatus_MoveDown_ToSubmitted = 69; BooleanFilterModel StaffPaycheck_ChangeStatus_MoveDown_ToReady = 70; BooleanFilterModel StaffPaycheck_ChangeStatus_MoveDown_ToExecuted = 71; BooleanFilterModel StaffPaycheck_ChangeStatus_MoveUp_ToSubmitted = 72; BooleanFilterModel StaffPaycheck_ChangeStatus_MoveUp_ToReady = 73; BooleanFilterModel StaffPaycheck_ChangeStatus_MoveUp_ToExecuted = 74; BooleanFilterModel StaffPaycheck_ChangeStatus_MoveUp_ToClosed = 75; BooleanFilterModel Withdrawal_ChangeStatus_MoveDown_ToDraft = 76; BooleanFilterModel Withdrawal_ChangeStatus_MoveDown_ToSubmitted = 77; BooleanFilterModel Withdrawal_ChangeStatus_MoveDown_ToReady = 78; BooleanFilterModel Withdrawal_ChangeStatus_MoveDown_ToExecuted = 79; BooleanFilterModel Withdrawal_ChangeStatus_MoveUp_ToSubmitted = 80; BooleanFilterModel Withdrawal_ChangeStatus_MoveUp_ToReady = 81; BooleanFilterModel Withdrawal_ChangeStatus_MoveUp_ToExecuted = 82; BooleanFilterModel Withdrawal_ChangeStatus_MoveUp_ToClosed = 83; BooleanFilterModel IncomingOrder_ChangeStatus_MoveDown_ToDraft = 84; BooleanFilterModel IncomingOrder_ChangeStatus_MoveDown_ToSubmitted = 85; BooleanFilterModel IncomingOrder_ChangeStatus_MoveDown_ToReady = 86; BooleanFilterModel IncomingOrder_ChangeStatus_MoveDown_ToExecuted = 87; BooleanFilterModel IncomingOrder_ChangeStatus_MoveUp_ToSubmitted = 88; BooleanFilterModel IncomingOrder_ChangeStatus_MoveUp_ToReady = 89; BooleanFilterModel IncomingOrder_ChangeStatus_MoveUp_ToExecuted = 90; BooleanFilterModel IncomingOrder_ChangeStatus_MoveUp_ToClosed = 91; BooleanFilterModel OutgoingOrder_ChangeStatus_MoveDown_ToDraft = 92; BooleanFilterModel OutgoingOrder_ChangeStatus_MoveDown_ToSubmitted = 93; BooleanFilterModel OutgoingOrder_ChangeStatus_MoveDown_ToReady = 94; BooleanFilterModel OutgoingOrder_ChangeStatus_MoveDown_ToExecuted = 95; BooleanFilterModel OutgoingOrder_ChangeStatus_MoveUp_ToSubmitted = 96; BooleanFilterModel OutgoingOrder_ChangeStatus_MoveUp_ToReady = 97; BooleanFilterModel OutgoingOrder_ChangeStatus_MoveUp_ToExecuted = 98; BooleanFilterModel OutgoingOrder_ChangeStatus_MoveUp_ToClosed = 99; BooleanFilterModel TechnicalAdministrating = 100;            }
+        
+            message PermissionsFilterModelMessage
+            {
+                PermissionsFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SalarySettlementEntryFilterModel
+            {
+ NumberFilterModel Paid = 1; NumberFilterModel Accrued = 2; NumberFilterModel Status = 3; NumberFilterModel ActorId = 4; DateTimeFilterModel RegisteredAt = 5; ReferenceFilterModel PaidTo = 6;            }
+        
+            message SalarySettlementEntryFilterModelMessage
+            {
+                SalarySettlementEntryFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StaffPaycheckFilterModel
+            {
+ NumberFilterModel CashPart = 1; NumberFilterModel BankTransferPart = 2; NumberFilterModel Withheld = 3; DateTimeFilterModel PeriodStart = 4; DateTimeFilterModel PeriodEnd = 5; NumberFilterModel Sum = 6; StringFilterModel Number = 7; NumberFilterModel Status = 8; ReferenceFilterModel Reference = 9; ReferenceFilterModel PaidTo = 10; ReferenceFilterModel Currency = 11; ReferenceFilterModel Accountable = 12;            }
+        
+            message StaffPaycheckFilterModelMessage
+            {
+                StaffPaycheckFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StockEntryFilterModel
+            {
+ NumberFilterModel Added = 1; NumberFilterModel Reserved = 2; NumberFilterModel Status = 3; NumberFilterModel ActorId = 4; DateTimeFilterModel RegisteredAt = 5; ReferenceFilterModel Good = 6;            }
+        
+            message StockEntryFilterModelMessage
+            {
+                StockEntryFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SupplierFilterModel
+            {
+ StringFilterModel Name = 1; ReferenceFilterModel Reference = 2;            }
+        
+            message SupplierFilterModelMessage
+            {
+                SupplierFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message UserFilterModel
+            {
+ StringFilterModel LoginName = 1; ReferenceFilterModel Reference = 2;            }
+        
+            message UserFilterModelMessage
+            {
+                UserFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message WithdrawalFilterModel
+            {
+ NumberFilterModel Sum = 1; StringFilterModel Number = 2; NumberFilterModel Status = 3; ReferenceFilterModel Reference = 4; ReferenceFilterModel Currency = 5; ReferenceFilterModel Accountable = 6;            }
+        
+            message WithdrawalFilterModelMessage
+            {
+                WithdrawalFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message AccountEntryPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; AccountEntryFilterModel Filter = 4;            }
+        
+            message AccountEntryPaginationRequestModelMessage
+            {
+                AccountEntryPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CashEntryPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; CashEntryFilterModel Filter = 4;            }
+        
+            message CashEntryPaginationRequestModelMessage
+            {
+                CashEntryPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CurrencyPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; CurrencyFilterModel Filter = 4;            }
+        
+            message CurrencyPaginationRequestModelMessage
+            {
+                CurrencyPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CustomerPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; CustomerFilterModel Filter = 4;            }
+        
+            message CustomerPaginationRequestModelMessage
+            {
+                CustomerPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message DepositPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; DepositFilterModel Filter = 4;            }
+        
+            message DepositPaginationRequestModelMessage
+            {
+                DepositPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message EmployeePaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; EmployeeFilterModel Filter = 4;            }
+        
+            message EmployeePaginationRequestModelMessage
+            {
+                EmployeePaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message GoodPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; GoodFilterModel Filter = 4;            }
+        
+            message GoodPaginationRequestModelMessage
+            {
+                GoodPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; IncomingOrderFilterModel Filter = 4;            }
+        
+            message IncomingOrderPaginationRequestModelMessage
+            {
+                IncomingOrderPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderLinePaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; IncomingOrderLineFilterModel Filter = 4;            }
+        
+            message IncomingOrderLinePaginationRequestModelMessage
+            {
+                IncomingOrderLinePaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingPaymentPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; IncomingPaymentFilterModel Filter = 4;            }
+        
+            message IncomingPaymentPaginationRequestModelMessage
+            {
+                IncomingPaymentPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; OutgoingOrderFilterModel Filter = 4;            }
+        
+            message OutgoingOrderPaginationRequestModelMessage
+            {
+                OutgoingOrderPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderLinePaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; OutgoingOrderLineFilterModel Filter = 4;            }
+        
+            message OutgoingOrderLinePaginationRequestModelMessage
+            {
+                OutgoingOrderLinePaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingPaymentPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; OutgoingPaymentFilterModel Filter = 4;            }
+        
+            message OutgoingPaymentPaginationRequestModelMessage
+            {
+                OutgoingPaymentPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message PermissionsPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; PermissionsFilterModel Filter = 4;            }
+        
+            message PermissionsPaginationRequestModelMessage
+            {
+                PermissionsPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SalarySettlementEntryPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; SalarySettlementEntryFilterModel Filter = 4;            }
+        
+            message SalarySettlementEntryPaginationRequestModelMessage
+            {
+                SalarySettlementEntryPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StaffPaycheckPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; StaffPaycheckFilterModel Filter = 4;            }
+        
+            message StaffPaycheckPaginationRequestModelMessage
+            {
+                StaffPaycheckPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StockEntryPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; StockEntryFilterModel Filter = 4;            }
+        
+            message StockEntryPaginationRequestModelMessage
+            {
+                StockEntryPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SupplierPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; SupplierFilterModel Filter = 4;            }
+        
+            message SupplierPaginationRequestModelMessage
+            {
+                SupplierPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message UserPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; UserFilterModel Filter = 4;            }
+        
+            message UserPaginationRequestModelMessage
+            {
+                UserPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message WithdrawalPaginationRequestModel
+            {
+ uint32 PageNumber = 1; uint32 Limit = 2;repeated string Orderings = 3; WithdrawalFilterModel Filter = 4;            }
+        
+            message WithdrawalPaginationRequestModelMessage
+            {
+                WithdrawalPaginationRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StringFilterModel
+            {
+ string Pattern = 1;            }
+        
+            message StringFilterModelMessage
+            {
+                StringFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message NumberFilterModel
+            {
+ double LeftLimit = 1; double RightLimit = 2;            }
+        
+            message NumberFilterModelMessage
+            {
+                NumberFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message DateTimeFilterModel
+            {
+ google.protobuf.Timestamp LeftLimit = 1; google.protobuf.Timestamp RightLimit = 2;            }
+        
+            message DateTimeFilterModelMessage
+            {
+                DateTimeFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message BooleanFilterModel
+            {
+ bool Value = 1;            }
+        
+            message BooleanFilterModelMessage
+            {
+                BooleanFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message ReferenceFilterModel
+            {
+repeated int64 In = 1;repeated int64 NotIn = 2; StringFilterModel Representation = 3;            }
+        
+            message ReferenceFilterModelMessage
+            {
+                ReferenceFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CollectionFilterModel
+            {
+ NumberFilterModel Count = 1;            }
+        
+            message CollectionFilterModelMessage
+            {
+                CollectionFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message ReferenceCollectionFilterModel
+            {
+ ReferenceFilterModel Any = 1; ReferenceFilterModel All = 2;            }
+        
+            message ReferenceCollectionFilterModelMessage
+            {
+                ReferenceCollectionFilterModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message ChangePasswordRequestModel
+            {
+ string OldPassword = 1; string NewPassword = 2;            }
+        
+            message ChangePasswordRequestModelMessage
+            {
+                ChangePasswordRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message UnsettledOrderModel
+            {
+ double ReceivedPayment = 1; double TotalValue = 2; double LeftToReceive = 3; OutgoingOrderReference OutgoingOrder = 4; IncomingOrderReference IncomingOrder = 5;repeated OutgoingPaymentReference OutgoingPayments = 6;repeated IncomingPaymentReference IncomingPayments = 7;            }
+        
+            message UnsettledOrderModelMessage
+            {
+                UnsettledOrderModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StartSessionRequestModel
+            {
+ string Login = 1; string Password = 2;            }
+        
+            message StartSessionRequestModelMessage
+            {
+                StartSessionRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StartSessionResponseModel
+            {
+ string SessionKey = 1; UserModel User = 2;            }
+        
+            message StartSessionResponseModelMessage
+            {
+                StartSessionResponseModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message VerifySessionRequestModel
+            {
+ string SessionKey = 1; int64 SessionUserId = 2;            }
+        
+            message VerifySessionRequestModelMessage
+            {
+                VerifySessionRequestModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32ICurrencyFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; CurrencyFilterModel Filter = 4;            }
+        
+            message Int32Int32ICurrencyFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32ICurrencyFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32ICustomerFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; CustomerFilterModel Filter = 4;            }
+        
+            message Int32Int32ICustomerFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32ICustomerFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IDepositFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; DepositFilterModel Filter = 4;            }
+        
+            message Int32Int32IDepositFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32IDepositFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IDepositReadOnlyModelUInt16CommunicationContractModel
+            {
+ uint32 TargetStatus = 1; DepositModel Item = 2;            }
+        
+            message IDepositReadOnlyModelUInt16CommunicationContractModelMessage
+            {
+                IDepositReadOnlyModelUInt16CommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IEmployeeFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; EmployeeFilterModel Filter = 4;            }
+        
+            message Int32Int32IEmployeeFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32IEmployeeFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IGoodFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; GoodFilterModel Filter = 4;            }
+        
+            message Int32Int32IGoodFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32IGoodFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IIncomingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; IncomingOrderFilterModel Filter = 4;            }
+        
+            message Int32Int32IIncomingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32IIncomingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IIncomingOrderReadOnlyModelUInt16CommunicationContractModel
+            {
+ uint32 TargetStatus = 1; IncomingOrderModel Item = 2;            }
+        
+            message IIncomingOrderReadOnlyModelUInt16CommunicationContractModelMessage
+            {
+                IIncomingOrderReadOnlyModelUInt16CommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IIncomingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; IncomingPaymentFilterModel Filter = 4;            }
+        
+            message Int32Int32IIncomingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32IIncomingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IIncomingPaymentReadOnlyModelUInt16CommunicationContractModel
+            {
+ uint32 TargetStatus = 1; IncomingPaymentModel Item = 2;            }
+        
+            message IIncomingPaymentReadOnlyModelUInt16CommunicationContractModelMessage
+            {
+                IIncomingPaymentReadOnlyModelUInt16CommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IOutgoingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; OutgoingOrderFilterModel Filter = 4;            }
+        
+            message Int32Int32IOutgoingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32IOutgoingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IOutgoingOrderReadOnlyModelUInt16CommunicationContractModel
+            {
+ uint32 TargetStatus = 1; OutgoingOrderModel Item = 2;            }
+        
+            message IOutgoingOrderReadOnlyModelUInt16CommunicationContractModelMessage
+            {
+                IOutgoingOrderReadOnlyModelUInt16CommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IOutgoingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; OutgoingPaymentFilterModel Filter = 4;            }
+        
+            message Int32Int32IOutgoingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32IOutgoingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IOutgoingPaymentReadOnlyModelUInt16CommunicationContractModel
+            {
+ uint32 TargetStatus = 1; OutgoingPaymentModel Item = 2;            }
+        
+            message IOutgoingPaymentReadOnlyModelUInt16CommunicationContractModelMessage
+            {
+                IOutgoingPaymentReadOnlyModelUInt16CommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IStaffPaycheckFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; StaffPaycheckFilterModel Filter = 4;            }
+        
+            message Int32Int32IStaffPaycheckFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32IStaffPaycheckFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IStaffPaycheckReadOnlyModelUInt16CommunicationContractModel
+            {
+ uint32 TargetStatus = 1; StaffPaycheckModel Item = 2;            }
+        
+            message IStaffPaycheckReadOnlyModelUInt16CommunicationContractModelMessage
+            {
+                IStaffPaycheckReadOnlyModelUInt16CommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32ISupplierFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; SupplierFilterModel Filter = 4;            }
+        
+            message Int32Int32ISupplierFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32ISupplierFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IUserFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; UserFilterModel Filter = 4;            }
+        
+            message Int32Int32IUserFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32IUserFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IWithdrawalFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel
+            {
+ int32 PageNumber = 1; int32 PageSize = 2;repeated string Orderings = 3; WithdrawalFilterModel Filter = 4;            }
+        
+            message Int32Int32IWithdrawalFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelMessage
+            {
+                Int32Int32IWithdrawalFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IWithdrawalReadOnlyModelUInt16CommunicationContractModel
+            {
+ uint32 TargetStatus = 1; WithdrawalModel Item = 2;            }
+        
+            message IWithdrawalReadOnlyModelUInt16CommunicationContractModelMessage
+            {
+                IWithdrawalReadOnlyModelUInt16CommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StringStringCommunicationContractModel
+            {
+ string Login = 1; string Password = 2;            }
+        
+            message StringStringCommunicationContractModelMessage
+            {
+                StringStringCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32CommunicationContractModel
+            {
+ int32 FirstNumber = 1; int32 SecondNumber = 2;            }
+        
+            message Int32Int32CommunicationContractModelMessage
+            {
+                Int32Int32CommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IEmployeeReadOnlyModelInt32CommunicationContractModel
+            {
+ int32 Count = 1; EmployeeModel Employee = 2;            }
+        
+            message IEmployeeReadOnlyModelInt32CommunicationContractModelMessage
+            {
+                IEmployeeReadOnlyModelInt32CommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IEnumerableOfIEmployeeReadOnlyModelInt32CommunicationContractModel
+            {
+ int32 MaxCount = 1;repeated EmployeeModel Employees = 2;            }
+        
+            message IEnumerableOfIEmployeeReadOnlyModelInt32CommunicationContractModelMessage
+            {
+                IEnumerableOfIEmployeeReadOnlyModelInt32CommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IEmployeeReadOnlyModelIListOfIEmployeeReadOnlyModelInt32Int32IEnumerableOfIEmployeeReadOnlyModelCommunicationContractModel
+            {
+ int32 MaxCount = 1; int32 MinCount = 2; EmployeeModel FirstEmployee = 3;repeated EmployeeModel Employees = 4;repeated EmployeeModel EmployeeReferences = 5;            }
+        
+            message IEmployeeReadOnlyModelIListOfIEmployeeReadOnlyModelInt32Int32IEnumerableOfIEmployeeReadOnlyModelCommunicationContractModelMessage
+            {
+                IEmployeeReadOnlyModelIListOfIEmployeeReadOnlyModelInt32Int32IEnumerableOfIEmployeeReadOnlyModelCommunicationContractModel Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message UserModelList
+            {
+repeated UserModel Message = 1;            }
+        
+            message UserModelListMessage
+            {
+                UserModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CustomerModelList
+            {
+repeated CustomerModel Message = 1;            }
+        
+            message CustomerModelListMessage
+            {
+                CustomerModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SupplierModelList
+            {
+repeated SupplierModel Message = 1;            }
+        
+            message SupplierModelListMessage
+            {
+                SupplierModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CurrencyModelList
+            {
+repeated CurrencyModel Message = 1;            }
+        
+            message CurrencyModelListMessage
+            {
+                CurrencyModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message GoodModelList
+            {
+repeated GoodModel Message = 1;            }
+        
+            message GoodModelListMessage
+            {
+                GoodModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message EmployeeModelList
+            {
+repeated EmployeeModel Message = 1;            }
+        
+            message EmployeeModelListMessage
+            {
+                EmployeeModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message DepositModelList
+            {
+repeated DepositModel Message = 1;            }
+        
+            message DepositModelListMessage
+            {
+                DepositModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingPaymentModelList
+            {
+repeated IncomingPaymentModel Message = 1;            }
+        
+            message IncomingPaymentModelListMessage
+            {
+                IncomingPaymentModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingPaymentModelList
+            {
+repeated OutgoingPaymentModel Message = 1;            }
+        
+            message OutgoingPaymentModelListMessage
+            {
+                OutgoingPaymentModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StaffPaycheckModelList
+            {
+repeated StaffPaycheckModel Message = 1;            }
+        
+            message StaffPaycheckModelListMessage
+            {
+                StaffPaycheckModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message WithdrawalModelList
+            {
+repeated WithdrawalModel Message = 1;            }
+        
+            message WithdrawalModelListMessage
+            {
+                WithdrawalModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderModelList
+            {
+repeated IncomingOrderModel Message = 1;            }
+        
+            message IncomingOrderModelListMessage
+            {
+                IncomingOrderModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderLineModelList
+            {
+repeated IncomingOrderLineModel Message = 1;            }
+        
+            message IncomingOrderLineModelListMessage
+            {
+                IncomingOrderLineModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderModelList
+            {
+repeated OutgoingOrderModel Message = 1;            }
+        
+            message OutgoingOrderModelListMessage
+            {
+                OutgoingOrderModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderLineModelList
+            {
+repeated OutgoingOrderLineModel Message = 1;            }
+        
+            message OutgoingOrderLineModelListMessage
+            {
+                OutgoingOrderLineModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message PermissionsModelList
+            {
+repeated PermissionsModel Message = 1;            }
+        
+            message PermissionsModelListMessage
+            {
+                PermissionsModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message AccountEntryModelList
+            {
+repeated AccountEntryModel Message = 1;            }
+        
+            message AccountEntryModelListMessage
+            {
+                AccountEntryModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CashEntryModelList
+            {
+repeated CashEntryModel Message = 1;            }
+        
+            message CashEntryModelListMessage
+            {
+                CashEntryModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SalarySettlementEntryModelList
+            {
+repeated SalarySettlementEntryModel Message = 1;            }
+        
+            message SalarySettlementEntryModelListMessage
+            {
+                SalarySettlementEntryModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StockEntryModelList
+            {
+repeated StockEntryModel Message = 1;            }
+        
+            message StockEntryModelListMessage
+            {
+                StockEntryModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message AccountEntryFilterModelList
+            {
+repeated AccountEntryFilterModel Message = 1;            }
+        
+            message AccountEntryFilterModelListMessage
+            {
+                AccountEntryFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CashEntryFilterModelList
+            {
+repeated CashEntryFilterModel Message = 1;            }
+        
+            message CashEntryFilterModelListMessage
+            {
+                CashEntryFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CurrencyFilterModelList
+            {
+repeated CurrencyFilterModel Message = 1;            }
+        
+            message CurrencyFilterModelListMessage
+            {
+                CurrencyFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CustomerFilterModelList
+            {
+repeated CustomerFilterModel Message = 1;            }
+        
+            message CustomerFilterModelListMessage
+            {
+                CustomerFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message DepositFilterModelList
+            {
+repeated DepositFilterModel Message = 1;            }
+        
+            message DepositFilterModelListMessage
+            {
+                DepositFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message EmployeeFilterModelList
+            {
+repeated EmployeeFilterModel Message = 1;            }
+        
+            message EmployeeFilterModelListMessage
+            {
+                EmployeeFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message GoodFilterModelList
+            {
+repeated GoodFilterModel Message = 1;            }
+        
+            message GoodFilterModelListMessage
+            {
+                GoodFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderFilterModelList
+            {
+repeated IncomingOrderFilterModel Message = 1;            }
+        
+            message IncomingOrderFilterModelListMessage
+            {
+                IncomingOrderFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderLineFilterModelList
+            {
+repeated IncomingOrderLineFilterModel Message = 1;            }
+        
+            message IncomingOrderLineFilterModelListMessage
+            {
+                IncomingOrderLineFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingPaymentFilterModelList
+            {
+repeated IncomingPaymentFilterModel Message = 1;            }
+        
+            message IncomingPaymentFilterModelListMessage
+            {
+                IncomingPaymentFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderFilterModelList
+            {
+repeated OutgoingOrderFilterModel Message = 1;            }
+        
+            message OutgoingOrderFilterModelListMessage
+            {
+                OutgoingOrderFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderLineFilterModelList
+            {
+repeated OutgoingOrderLineFilterModel Message = 1;            }
+        
+            message OutgoingOrderLineFilterModelListMessage
+            {
+                OutgoingOrderLineFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingPaymentFilterModelList
+            {
+repeated OutgoingPaymentFilterModel Message = 1;            }
+        
+            message OutgoingPaymentFilterModelListMessage
+            {
+                OutgoingPaymentFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message PermissionsFilterModelList
+            {
+repeated PermissionsFilterModel Message = 1;            }
+        
+            message PermissionsFilterModelListMessage
+            {
+                PermissionsFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SalarySettlementEntryFilterModelList
+            {
+repeated SalarySettlementEntryFilterModel Message = 1;            }
+        
+            message SalarySettlementEntryFilterModelListMessage
+            {
+                SalarySettlementEntryFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StaffPaycheckFilterModelList
+            {
+repeated StaffPaycheckFilterModel Message = 1;            }
+        
+            message StaffPaycheckFilterModelListMessage
+            {
+                StaffPaycheckFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StockEntryFilterModelList
+            {
+repeated StockEntryFilterModel Message = 1;            }
+        
+            message StockEntryFilterModelListMessage
+            {
+                StockEntryFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SupplierFilterModelList
+            {
+repeated SupplierFilterModel Message = 1;            }
+        
+            message SupplierFilterModelListMessage
+            {
+                SupplierFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message UserFilterModelList
+            {
+repeated UserFilterModel Message = 1;            }
+        
+            message UserFilterModelListMessage
+            {
+                UserFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message WithdrawalFilterModelList
+            {
+repeated WithdrawalFilterModel Message = 1;            }
+        
+            message WithdrawalFilterModelListMessage
+            {
+                WithdrawalFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message AccountEntryPaginationRequestModelList
+            {
+repeated AccountEntryPaginationRequestModel Message = 1;            }
+        
+            message AccountEntryPaginationRequestModelListMessage
+            {
+                AccountEntryPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CashEntryPaginationRequestModelList
+            {
+repeated CashEntryPaginationRequestModel Message = 1;            }
+        
+            message CashEntryPaginationRequestModelListMessage
+            {
+                CashEntryPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CurrencyPaginationRequestModelList
+            {
+repeated CurrencyPaginationRequestModel Message = 1;            }
+        
+            message CurrencyPaginationRequestModelListMessage
+            {
+                CurrencyPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CustomerPaginationRequestModelList
+            {
+repeated CustomerPaginationRequestModel Message = 1;            }
+        
+            message CustomerPaginationRequestModelListMessage
+            {
+                CustomerPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message DepositPaginationRequestModelList
+            {
+repeated DepositPaginationRequestModel Message = 1;            }
+        
+            message DepositPaginationRequestModelListMessage
+            {
+                DepositPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message EmployeePaginationRequestModelList
+            {
+repeated EmployeePaginationRequestModel Message = 1;            }
+        
+            message EmployeePaginationRequestModelListMessage
+            {
+                EmployeePaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message GoodPaginationRequestModelList
+            {
+repeated GoodPaginationRequestModel Message = 1;            }
+        
+            message GoodPaginationRequestModelListMessage
+            {
+                GoodPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderPaginationRequestModelList
+            {
+repeated IncomingOrderPaginationRequestModel Message = 1;            }
+        
+            message IncomingOrderPaginationRequestModelListMessage
+            {
+                IncomingOrderPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingOrderLinePaginationRequestModelList
+            {
+repeated IncomingOrderLinePaginationRequestModel Message = 1;            }
+        
+            message IncomingOrderLinePaginationRequestModelListMessage
+            {
+                IncomingOrderLinePaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IncomingPaymentPaginationRequestModelList
+            {
+repeated IncomingPaymentPaginationRequestModel Message = 1;            }
+        
+            message IncomingPaymentPaginationRequestModelListMessage
+            {
+                IncomingPaymentPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderPaginationRequestModelList
+            {
+repeated OutgoingOrderPaginationRequestModel Message = 1;            }
+        
+            message OutgoingOrderPaginationRequestModelListMessage
+            {
+                OutgoingOrderPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingOrderLinePaginationRequestModelList
+            {
+repeated OutgoingOrderLinePaginationRequestModel Message = 1;            }
+        
+            message OutgoingOrderLinePaginationRequestModelListMessage
+            {
+                OutgoingOrderLinePaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message OutgoingPaymentPaginationRequestModelList
+            {
+repeated OutgoingPaymentPaginationRequestModel Message = 1;            }
+        
+            message OutgoingPaymentPaginationRequestModelListMessage
+            {
+                OutgoingPaymentPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message PermissionsPaginationRequestModelList
+            {
+repeated PermissionsPaginationRequestModel Message = 1;            }
+        
+            message PermissionsPaginationRequestModelListMessage
+            {
+                PermissionsPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SalarySettlementEntryPaginationRequestModelList
+            {
+repeated SalarySettlementEntryPaginationRequestModel Message = 1;            }
+        
+            message SalarySettlementEntryPaginationRequestModelListMessage
+            {
+                SalarySettlementEntryPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StaffPaycheckPaginationRequestModelList
+            {
+repeated StaffPaycheckPaginationRequestModel Message = 1;            }
+        
+            message StaffPaycheckPaginationRequestModelListMessage
+            {
+                StaffPaycheckPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StockEntryPaginationRequestModelList
+            {
+repeated StockEntryPaginationRequestModel Message = 1;            }
+        
+            message StockEntryPaginationRequestModelListMessage
+            {
+                StockEntryPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message SupplierPaginationRequestModelList
+            {
+repeated SupplierPaginationRequestModel Message = 1;            }
+        
+            message SupplierPaginationRequestModelListMessage
+            {
+                SupplierPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message UserPaginationRequestModelList
+            {
+repeated UserPaginationRequestModel Message = 1;            }
+        
+            message UserPaginationRequestModelListMessage
+            {
+                UserPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message WithdrawalPaginationRequestModelList
+            {
+repeated WithdrawalPaginationRequestModel Message = 1;            }
+        
+            message WithdrawalPaginationRequestModelListMessage
+            {
+                WithdrawalPaginationRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StringFilterModelList
+            {
+repeated StringFilterModel Message = 1;            }
+        
+            message StringFilterModelListMessage
+            {
+                StringFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message NumberFilterModelList
+            {
+repeated NumberFilterModel Message = 1;            }
+        
+            message NumberFilterModelListMessage
+            {
+                NumberFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message DateTimeFilterModelList
+            {
+repeated DateTimeFilterModel Message = 1;            }
+        
+            message DateTimeFilterModelListMessage
+            {
+                DateTimeFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message BooleanFilterModelList
+            {
+repeated BooleanFilterModel Message = 1;            }
+        
+            message BooleanFilterModelListMessage
+            {
+                BooleanFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message ReferenceFilterModelList
+            {
+repeated ReferenceFilterModel Message = 1;            }
+        
+            message ReferenceFilterModelListMessage
+            {
+                ReferenceFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message CollectionFilterModelList
+            {
+repeated CollectionFilterModel Message = 1;            }
+        
+            message CollectionFilterModelListMessage
+            {
+                CollectionFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message ReferenceCollectionFilterModelList
+            {
+repeated ReferenceCollectionFilterModel Message = 1;            }
+        
+            message ReferenceCollectionFilterModelListMessage
+            {
+                ReferenceCollectionFilterModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message ChangePasswordRequestModelList
+            {
+repeated ChangePasswordRequestModel Message = 1;            }
+        
+            message ChangePasswordRequestModelListMessage
+            {
+                ChangePasswordRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message UnsettledOrderModelList
+            {
+repeated UnsettledOrderModel Message = 1;            }
+        
+            message UnsettledOrderModelListMessage
+            {
+                UnsettledOrderModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StartSessionRequestModelList
+            {
+repeated StartSessionRequestModel Message = 1;            }
+        
+            message StartSessionRequestModelListMessage
+            {
+                StartSessionRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StartSessionResponseModelList
+            {
+repeated StartSessionResponseModel Message = 1;            }
+        
+            message StartSessionResponseModelListMessage
+            {
+                StartSessionResponseModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message VerifySessionRequestModelList
+            {
+repeated VerifySessionRequestModel Message = 1;            }
+        
+            message VerifySessionRequestModelListMessage
+            {
+                VerifySessionRequestModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32ICurrencyFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32ICurrencyFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32ICurrencyFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32ICurrencyFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32ICustomerFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32ICustomerFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32ICustomerFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32ICustomerFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IDepositFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32IDepositFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32IDepositFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32IDepositFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IDepositReadOnlyModelUInt16CommunicationContractModelList
+            {
+repeated IDepositReadOnlyModelUInt16CommunicationContractModel Message = 1;            }
+        
+            message IDepositReadOnlyModelUInt16CommunicationContractModelListMessage
+            {
+                IDepositReadOnlyModelUInt16CommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IEmployeeFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32IEmployeeFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32IEmployeeFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32IEmployeeFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IGoodFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32IGoodFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32IGoodFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32IGoodFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IIncomingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32IIncomingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32IIncomingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32IIncomingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IIncomingOrderReadOnlyModelUInt16CommunicationContractModelList
+            {
+repeated IIncomingOrderReadOnlyModelUInt16CommunicationContractModel Message = 1;            }
+        
+            message IIncomingOrderReadOnlyModelUInt16CommunicationContractModelListMessage
+            {
+                IIncomingOrderReadOnlyModelUInt16CommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IIncomingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32IIncomingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32IIncomingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32IIncomingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IIncomingPaymentReadOnlyModelUInt16CommunicationContractModelList
+            {
+repeated IIncomingPaymentReadOnlyModelUInt16CommunicationContractModel Message = 1;            }
+        
+            message IIncomingPaymentReadOnlyModelUInt16CommunicationContractModelListMessage
+            {
+                IIncomingPaymentReadOnlyModelUInt16CommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IOutgoingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32IOutgoingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32IOutgoingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32IOutgoingOrderFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IOutgoingOrderReadOnlyModelUInt16CommunicationContractModelList
+            {
+repeated IOutgoingOrderReadOnlyModelUInt16CommunicationContractModel Message = 1;            }
+        
+            message IOutgoingOrderReadOnlyModelUInt16CommunicationContractModelListMessage
+            {
+                IOutgoingOrderReadOnlyModelUInt16CommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IOutgoingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32IOutgoingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32IOutgoingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32IOutgoingPaymentFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IOutgoingPaymentReadOnlyModelUInt16CommunicationContractModelList
+            {
+repeated IOutgoingPaymentReadOnlyModelUInt16CommunicationContractModel Message = 1;            }
+        
+            message IOutgoingPaymentReadOnlyModelUInt16CommunicationContractModelListMessage
+            {
+                IOutgoingPaymentReadOnlyModelUInt16CommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IStaffPaycheckFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32IStaffPaycheckFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32IStaffPaycheckFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32IStaffPaycheckFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IStaffPaycheckReadOnlyModelUInt16CommunicationContractModelList
+            {
+repeated IStaffPaycheckReadOnlyModelUInt16CommunicationContractModel Message = 1;            }
+        
+            message IStaffPaycheckReadOnlyModelUInt16CommunicationContractModelListMessage
+            {
+                IStaffPaycheckReadOnlyModelUInt16CommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32ISupplierFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32ISupplierFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32ISupplierFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32ISupplierFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IUserFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32IUserFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32IUserFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32IUserFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32IWithdrawalFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList
+            {
+repeated Int32Int32IWithdrawalFilterReadOnlyModelIEnumerableOfStringCommunicationContractModel Message = 1;            }
+        
+            message Int32Int32IWithdrawalFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelListMessage
+            {
+                Int32Int32IWithdrawalFilterReadOnlyModelIEnumerableOfStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IWithdrawalReadOnlyModelUInt16CommunicationContractModelList
+            {
+repeated IWithdrawalReadOnlyModelUInt16CommunicationContractModel Message = 1;            }
+        
+            message IWithdrawalReadOnlyModelUInt16CommunicationContractModelListMessage
+            {
+                IWithdrawalReadOnlyModelUInt16CommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message StringStringCommunicationContractModelList
+            {
+repeated StringStringCommunicationContractModel Message = 1;            }
+        
+            message StringStringCommunicationContractModelListMessage
+            {
+                StringStringCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message Int32Int32CommunicationContractModelList
+            {
+repeated Int32Int32CommunicationContractModel Message = 1;            }
+        
+            message Int32Int32CommunicationContractModelListMessage
+            {
+                Int32Int32CommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IEmployeeReadOnlyModelInt32CommunicationContractModelList
+            {
+repeated IEmployeeReadOnlyModelInt32CommunicationContractModel Message = 1;            }
+        
+            message IEmployeeReadOnlyModelInt32CommunicationContractModelListMessage
+            {
+                IEmployeeReadOnlyModelInt32CommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IEnumerableOfIEmployeeReadOnlyModelInt32CommunicationContractModelList
+            {
+repeated IEnumerableOfIEmployeeReadOnlyModelInt32CommunicationContractModel Message = 1;            }
+        
+            message IEnumerableOfIEmployeeReadOnlyModelInt32CommunicationContractModelListMessage
+            {
+                IEnumerableOfIEmployeeReadOnlyModelInt32CommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }
+        
+            message IEmployeeReadOnlyModelIListOfIEmployeeReadOnlyModelInt32Int32IEnumerableOfIEmployeeReadOnlyModelCommunicationContractModelList
+            {
+repeated IEmployeeReadOnlyModelIListOfIEmployeeReadOnlyModelInt32Int32IEnumerableOfIEmployeeReadOnlyModelCommunicationContractModel Message = 1;            }
+        
+            message IEmployeeReadOnlyModelIListOfIEmployeeReadOnlyModelInt32Int32IEnumerableOfIEmployeeReadOnlyModelCommunicationContractModelListMessage
+            {
+                IEmployeeReadOnlyModelIListOfIEmployeeReadOnlyModelInt32Int32IEnumerableOfIEmployeeReadOnlyModelCommunicationContractModelList Message = 1;
+                ProtocolMessageAddin Addin = 2;
+            }

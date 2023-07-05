@@ -1,0 +1,146 @@
+syntax = "proto3";
+    import "google/protobuf/timestamp.proto";
+    import "ExceptionMessage.proto";
+    option csharp_namespace = "Protocol.Grpc.ProtoModels";
+    package Protocol.Grpc;
+
+
+            message DateTimeMessage 
+            {
+                google.protobuf.Timestamp Message = 2;
+                ProtocolMessageAddin Addin = 1;
+            }
+
+
+                    message DateTimeList
+                    {
+                        repeated google.protobuf.Timestamp Message = 1; 
+                    }
+
+                    message DateTimeListMessage
+                    {
+                        ProtocolMessageAddin Addin = 1;
+                        DateTimeList Message = 2;
+                    }
+                
+            message StringMessage 
+            {
+                string Message = 2;
+                ProtocolMessageAddin Addin = 1;
+            }
+
+
+                    message StringListMessage
+                    {
+                        ProtocolMessageAddin Addin = 1;
+                        repeated string Message = 2;
+                    }
+                
+            message Int32Message 
+            {
+                int32 Message = 2;
+                ProtocolMessageAddin Addin = 1;
+            }
+
+
+                    message Int32ListMessage
+                    {
+                        ProtocolMessageAddin Addin = 1;
+                        repeated int32 Message = 2;
+                    }
+                
+            message Int64Message 
+            {
+                int64 Message = 2;
+                ProtocolMessageAddin Addin = 1;
+            }
+
+
+                    message Int64ListMessage
+                    {
+                        ProtocolMessageAddin Addin = 1;
+                        repeated int64 Message = 2;
+                    }
+                
+            message UInt32Message 
+            {
+                uint32 Message = 2;
+                ProtocolMessageAddin Addin = 1;
+            }
+
+
+                    message UInt32ListMessage
+                    {
+                        ProtocolMessageAddin Addin = 1;
+                        repeated uint32 Message = 2;
+                    }
+                
+            message UInt64Message 
+            {
+                uint64 Message = 2;
+                ProtocolMessageAddin Addin = 1;
+            }
+
+
+                    message UInt64ListMessage
+                    {
+                        ProtocolMessageAddin Addin = 1;
+                        repeated uint64 Message = 2;
+                    }
+                
+            message BooleanMessage 
+            {
+                bool Message = 2;
+                ProtocolMessageAddin Addin = 1;
+            }
+
+
+                    message BooleanListMessage
+                    {
+                        ProtocolMessageAddin Addin = 1;
+                        repeated bool Message = 2;
+                    }
+                
+            message SingleMessage 
+            {
+                float Message = 2;
+                ProtocolMessageAddin Addin = 1;
+            }
+
+
+                    message SingleListMessage
+                    {
+                        ProtocolMessageAddin Addin = 1;
+                        repeated float Message = 2;
+                    }
+                
+            message DoubleMessage 
+            {
+                double Message = 2;
+                ProtocolMessageAddin Addin = 1;
+            }
+
+
+                    message DoubleListMessage
+                    {
+                        ProtocolMessageAddin Addin = 1;
+                        repeated double Message = 2;
+                    }
+                
+            message UInt16Message 
+            {
+                uint32 Message = 2;
+                ProtocolMessageAddin Addin = 1;
+            }
+
+
+                    message UInt16List
+                    {
+                        repeated uint32 Message = 1; 
+                    }
+
+                    message UInt16ListMessage
+                    {
+                        ProtocolMessageAddin Addin = 1;
+                        UInt16List Message = 2;
+                    }

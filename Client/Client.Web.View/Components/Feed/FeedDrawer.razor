@@ -1,0 +1,106 @@
+﻿@using Client.Web.View.Components.Universal;
+@using Client.Web.View.Services;
+@using DestallMaterials.Blazor.Services.UI;
+@using DestallMaterials.WheelProtection.Extensions.Tasks;
+@using MudBlazor;
+@using DestallMaterials.Blazor.Components.Universal;
+
+
+@inject IFeedManager feed
+@inject IAccountManager account
+@inject IResizeSensor resizeSensor
+@inject IUiManipulator ui
+
+
+@inherits DisposableComponent
+
+@if (Render)
+{
+    <MudDrawer @bind-Open="@feed.DrawnIn"
+           Fixed="true"
+           Anchor="Anchor.End"
+           Elevation="10"
+           Variant="@DrawerVariant.Persistent"
+           Class="feed"
+           ClipMode="DrawerClipMode.Docked"
+           Width="@Width"
+           UserAttributes="_feedAttributes"
+           Style="@Style">
+
+        <FeedButton Style="position: fixed; margin-left: -65px; " />
+
+        <Client.Web.View.Components.Feed.Feed />
+
+        @{
+            RunResizeSubscription();
+        }
+
+    </MudDrawer>
+}
+
+
+@code {
+    [Parameter]
+    public bool Render { get; set; }
+
+    bool _subscribedForResize;
+
+    string Width { get; set; } = "500px";
+
+    string Style => $"width: fit-content; min-width: {Width}";
+
+    readonly string _feedId = Guid.NewGuid().ToString();
+
+    Dictionary<string, object> _feedAttributes = new();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        if (firstRender)
+        {
+            BindToLifetime(account.SubscribeForPermissionsChange(p => StateHasChanged()));
+
+            BindToLifetime(feed.SubscribeForDrawing(v => StateHasChanged()));           
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        _feedAttributes = new()
+            {
+                ["id"] = _feedId
+            };
+    }
+
+    void RunResizeSubscription()
+    {
+        if (!_subscribedForResize)
+        {
+            Task.Delay(500).Then(async () =>
+            {
+                var callback = await resizeSensor.SubscribeAsync(_feedId, async size =>
+                {
+                    const string drawerWidthCssVariable = "--mud-drawer-width-right";
+
+                    var minWidth = feed.FeedWidthPx;
+
+                    var targetWidth = size.Width > minWidth ? size.Width : minWidth;
+
+                    var targetWidthString = $"{targetWidth}px";
+
+                    await ui.SetCssVariableValue(_feedId, drawerWidthCssVariable, targetWidthString);
+
+                    StateHasChanged();
+                });
+
+                if (callback is null)
+                {
+                    return;
+                }
+                _subscribedForResize = true;
+                BindToLifetime(callback);
+            }).Forget();
+        }
+    }
+}

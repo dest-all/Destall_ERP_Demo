@@ -1,0 +1,72 @@
+﻿.entity-search-selector {
+    .navigate-to-arrow {
+        margin-top: 28px;
+        margin-left: 3px;
+    }
+}
+
+.entity-card {
+
+    .field-property {
+        max-width: 500px;
+        min-width: 100px;
+    }
+
+    .property-requested-goods {
+        width: fit-content;
+    }
+
+    .search-selector-plural {
+        max-width: 500px;
+    }
+
+    width: fit-content;
+    height: fit-content;
+
+    .table-property {
+        max-width: 800px;
+    }
+
+    .entity-card {
+        margin-top: 10px;
+    }
+
+    h3 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    h4 {
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+
+.app-root {
+    --mud-palette-appbar-background: grey;
+}
+
+.loaded-table-container {
+    height: 1000px;
+}
+
+
+.status-input {
+    width: 100px;
+    text-align: center;
+    display: flex;
+
+    .options {
+        display: grid;
+    }
+
+    .secondary {
+        color: rgba(0, 0, 0, 0.15);
+        font-size: 12px;
+    }
+
+    .switchers {
+        margin-top: 21%;
+        height: fit-content;
+    }
+}

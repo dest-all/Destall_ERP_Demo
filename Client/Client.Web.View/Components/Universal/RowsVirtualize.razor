@@ -1,0 +1,78 @@
+﻿@using Client.Web.View.Services;
+@using MudBlazor;
+@typeparam T
+
+@inject IDomAccessor _domAccessor;
+
+@if (_isShown)
+{
+    <Virtualize TItem="IReadOnlyList<T>" ItemsProvider="CreateItemsProviderDelegate()" Context="itemsLine" @ref=_virt OverscanCount="2">
+        <div style="display:flex; padding-bottom:20px; width: fit-content">
+            @foreach (var item in itemsLine)
+            {
+                @ChildContent(item)
+            }
+        </div>
+    </Virtualize>
+}
+
+@code {
+
+    [Parameter]
+    [EditorRequired]
+    public RenderFragment<T> ChildContent { get; set; }
+
+    [Parameter]
+    [EditorRequired]
+    public Func<ItemsProviderRequest, Task<IEnumerable<T>>> GetItems { get; set; }
+
+    [Parameter]
+    [EditorRequired]
+    public Func<Task<int>> GetItemsCount { get; set; }
+
+    [Parameter]
+    [EditorRequired]
+    public int ItemsInARow { get; set; }
+
+    [Parameter]
+    public Func<string, Services.Size, Func<Task>, Task> OnResize { get; set; } = async (firstRawId, s, refresh) => { };
+
+    Virtualize<IReadOnlyList<T>> _virt;
+    bool _isShown = true;
+
+    ItemsProviderDelegate<IReadOnlyList<T>> CreateItemsProviderDelegate()
+        => async request =>
+        {
+            var countTask = GetItemsCount();
+
+            request = new(request.StartIndex * ItemsInARow, request.Count * ItemsInARow, default);
+            var itemsTask = GetItems(request);
+
+            var count = (int)Math.Ceiling((double)(await countTask) / ItemsInARow);
+            var chunks = (await itemsTask).Chunk(ItemsInARow).ToArray();
+
+            var result = new ItemsProviderResult<IReadOnlyList<T>>(chunks, count);
+
+            return result;
+        };
+
+    readonly object _locker = new object();
+    public async Task RefreshAsync()
+    {
+        lock (_locker)
+        {
+            if (!_isShown)
+            {
+                return;
+            }
+            _isShown = false;
+            StateHasChanged();
+        }
+        await Task.Delay(200);
+        lock (_locker)
+        {
+            _isShown = true;
+            StateHasChanged();
+        }
+    }
+}

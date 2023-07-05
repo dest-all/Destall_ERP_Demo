@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Protocol.Json": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:14472;http://localhost:14480"
+    }
+  }
+}

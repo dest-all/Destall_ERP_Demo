@@ -1,0 +1,98 @@
+﻿@using Client.Web.View.Components.Universal;
+@using Client.Web.View.Services;
+@using MudBlazor;
+@using Protocol.Models.Entities;
+@using Protocol.Models;
+@using System.Diagnostics;
+@using DestallMaterials.Blazor.Components.Universal;
+
+@inherits DisposableComponent
+
+@inject IFeedManager feedManager
+@inject IAccountManager account
+
+@for (int i = 0; i < Items.Length; i++)
+{
+    var item = Items[i];
+    <FeedItem Item="item"
+          OnChange="async () => { await feedManager.FireItemChangedAsync(item); StateHasChanged(); }"
+          Permissions="account.Permissions"
+          Delete="async () => await feedManager.RemoveAsync(item)"
+          DoWithReference="r => FeedItems.Add(r)" />
+}
+
+@code {
+
+    Stopwatch _measurer = Stopwatch.StartNew();
+
+    IReferrableModel[] Items { get; set; }
+
+    List<FeedItem> FeedItems { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        RecreateArray();
+
+        Permissions = account.Permissions;
+
+    }
+
+    void RecreateArray() => Items = feedManager.Items.Reverse().ToArray();
+
+    IPermissionsReadOnlyModel Permissions;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        FeedItems = new();
+
+        feedManager.FeedItems = FeedItems;
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        if (firstRender)
+        {
+            BindToLifetime(feedManager.SubscribeForFeedCountChange(async () =>
+            {
+                _reactedToChanges = false;
+                RecreateArray();
+                await Task.Delay(20);
+                StateHasChanged();
+                _reactedToChanges = true;
+            }));
+
+            BindToLifetime(account.SubscribeForPermissionsChange(perm =>
+            {
+                _reactedToChanges = false;
+                Permissions = perm;
+                StateHasChanged();
+                _reactedToChanges = true;
+            }));
+        }
+
+        _measurer.Stop();
+        Console.WriteLine($"Rendering feed took {_measurer.ElapsedMilliseconds} ms.");
+    }
+
+    bool _reactedToChanges = false;
+
+
+
+    protected override bool ShouldRender()
+    {
+        var should = !_reactedToChanges;
+
+        if (should)
+        {
+            _measurer = Stopwatch.StartNew();
+        }
+        return should;
+    }
+
+
+}

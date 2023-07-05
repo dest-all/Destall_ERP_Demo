@@ -1,0 +1,19 @@
+﻿@using Client.Web.View.Services;
+@using MudBlazor
+
+@inject IFeedManager feed
+
+<MudIconButton Icon="@_feedIcon" Color="Color.Inherit" OnClick="e => feed.DrawnIn = !feed.DrawnIn" Style=@Style Size="@MudBlazor.Size.Large"/>
+
+
+@*<MudIconButton Icon="@Icons.Material.Outlined.Drafts" Color="Color.Inherit" OnClick="e => feed.FeedWidthPx = _minWidth + (_maxWidth - feed.FeedWidthPx)" />*@
+
+@code {
+    const string _feedIcon = Icons.Material.Outlined.Feed;
+
+    [Parameter]
+    public string Style { get; set; }
+
+    const int _minWidth = 500;
+    const int _maxWidth = 900;
+}

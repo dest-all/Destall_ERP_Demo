@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Protocol.Grpc": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:37332;http://localhost:37335"
+    }
+  }
+}

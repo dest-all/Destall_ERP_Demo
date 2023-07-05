@@ -1,0 +1,7 @@
+﻿@using Client.Web.View.Services;
+@inject IAccountManager account
+
+@if (account.Authorised)
+{
+    <h3>You lack permissions to view this item</h3>
+}

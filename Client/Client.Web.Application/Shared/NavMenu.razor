@@ -1,0 +1,46 @@
+﻿@using Client.Web.View.Services;
+@using MudBlazor
+@using static Common.Phrases.Custom;
+
+@inject IAccountManager account
+
+<MudNavMenu>
+
+    <MudNavGroup Title="@Data" Icon="@Icons.Material.Filled.DataArray" Expanded="true">
+
+        @foreach (var (entity, _) in Sections.LoadedTable)
+        {
+            var permissionsChecker = Client.Web.View.Services.PermissionsChecker.For(entity.Replace(" ", ""), account.Permissions);
+            if (!permissionsChecker.Read)
+            {
+                continue;
+            }
+            var route = $"data/{entity.Replace(" ", "").ToLower()}";
+            <MudNavLink Href="@(route)" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Add">@permissionsChecker.FriendlyEntityNamePlural</MudNavLink>
+        }
+    </MudNavGroup>
+
+    <MudDivider Class="my-2" />
+
+    <MudNavGroup Title="@Reports" Icon="@Icons.Material.Filled.Report">
+        <MudNavLink Href="/reports/pending-payments" Icon="@Icons.Material.Filled.AccountBalance">
+            @Pending_Payments
+        </MudNavLink>
+    </MudNavGroup>
+
+    <MudNavGroup Title="@Settings" Icon="@Icons.Material.Filled.Settings" Expanded="false">
+        <MudNavLink Href="/settings/app" Icon="@Icons.Material.Filled.Window">@Application</MudNavLink>
+    </MudNavGroup>
+
+</MudNavMenu>
+
+@code {
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if (firstRender)
+        {
+            account.SubscribeForPermissionsChange(p => StateHasChanged());
+        }
+    }
+}

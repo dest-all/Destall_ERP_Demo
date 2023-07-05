@@ -1,0 +1,113 @@
+﻿@using Client.Web.View.Components.Universal
+@using Client.Web.View.Services;
+@using DestallMaterials.Blazor.Components.Universal;
+@using DestallMaterials.WheelProtection.Extensions.Strings;
+@using DestallMaterials.WheelProtection.Extensions.Tasks;
+
+@using static Common.Phrases.Custom.Auth;
+
+@inherits DisposableComponent
+
+@inject IAccountManager account
+
+<MudBlazor.MudCard Class="sign-in-card" Style="@Style">
+    <MudBlazor.MudCardContent>
+        @if (!account.Authorised)
+        {
+            <MudBlazor.MudTextField T="string" @bind-Text="@Login" Label="@Login" />
+            <MudBlazor.MudTextField T="string" @bind-Text="@Password" Label="@Password" />
+
+            <MudBlazor.MudCardActions Class="justify-end">
+                <DynamicButton Button="@SignInButton" />
+            </MudBlazor.MudCardActions>
+
+            @if (Error.HasContent())
+            {
+                <MudBlazor.MudText Color="MudBlazor.Color.Error"
+                           Typo="MudBlazor.Typo.subtitle1">
+
+                    @Error
+
+                </MudBlazor.MudText>
+            }
+        }
+        else
+        {
+            <MudBlazor.MudText Color="MudBlazor.Color.Success">@string.Format(LoggedInAs, account.UserName)</MudBlazor.MudText>
+
+            <ChangePasswordCard />
+
+            <MudBlazor.MudCardActions Class="justify-end">
+                <DynamicButton Button="SignOutButton" />
+            </MudBlazor.MudCardActions>
+        }
+
+    </MudBlazor.MudCardContent>
+</MudBlazor.MudCard>
+
+
+@code {
+
+    [Parameter]
+    public string Style { get; set; }
+
+    string Login { get; set; }
+    string Password { get; set; }
+
+
+    ButtonConfiguration SignInButton { get; set; }
+    ButtonConfiguration SignOutButton { get; set; }
+
+    string Error = "";
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        SignInButton = new ButtonConfiguration
+            {
+                ActionName = SignIn,
+                Color = MudBlazor.Color.Info,
+                Disabled = false,
+                Callback = SignInAsync
+            };
+
+        SignOutButton = new ButtonConfiguration
+            {
+                ActionName = SignOut,
+                Color = MudBlazor.Color.Error,
+                Callback = account.EndCurrentSessionAsync,
+                Disabled = false
+            };
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if (firstRender)
+        {
+            BindToLifetime(account.SubscribeForPermissionsChange(p => StateHasChanged()));
+        }
+    }
+
+    async Task SignInAsync()
+    {
+        var error = await account.AuthoriseNewSessionAsync(Login ?? "", Password ?? "");
+
+        Error = error?.Message;
+
+        if (error is not null)
+        {
+            StateHasChanged();
+
+            Task.Delay(3000).Then(async () =>
+            {
+                Error = "";
+                StateHasChanged();
+            });
+
+            throw error;
+        }
+    }
+
+}

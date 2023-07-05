@@ -1,0 +1,63 @@
+﻿@using Client.Web.View.Services;
+@using MudBlazor;
+@using Protocol.Models.Entities;
+@using Protocol.Models;
+
+
+<div id="@Id">
+    <MudItem Style="padding: 5px" Class="feed-item">
+        <MudBadge Content="'X'" OnClick="Delete" Overlap="true" Bordered="true" Class="mx-6 my-4">
+            @CardRenderer.RenderOne(new()
+            {
+                Item = Item,
+                OnChange = OnChange,
+                Permissions = Permissions,
+                Collapsed = _collapsed,
+                OnCollapsedChanged = c => _collapsed = c,
+                OnDeleted = Delete
+            })
+        </MudBadge>
+    </MudItem>
+</div>
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public IReferrableModel Item { get; set; }
+
+    [Parameter]
+    public Func<Task> OnChange { get; set; }
+
+    [Parameter]
+    public IPermissionsReadOnlyModel Permissions { get; set; }
+
+    [Parameter]
+    public Func<Task> Delete { get; set; }
+
+    [Parameter]
+    public Action<FeedItem> DoWithReference { get; set; } = r => { };
+
+    EntityFormsRenderer CardRenderer => EntityFormsRenderer.PickFor(Item);
+
+    bool _collapsed = true;
+
+    const string rollIcon = Icons.Material.Filled.Lock;
+
+    public string Id => Item.Reference.ComputeChecksum().ToString();
+
+    public void SetCollapsed(bool? value = null)
+    {
+        if (_collapsed == value)
+        {
+            return;
+        }
+        _collapsed = !_collapsed;
+        StateHasChanged();
+    }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        DoWithReference(this);
+    }
+}

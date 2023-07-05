@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DestallMaterials.WheelProtection.Caching" Version="1.1.6" />
+		<PackageReference Include="DestallMaterials.WheelProtection.Executions" Version="1.0.4" />
+		<PackageReference Include="DestallMaterials.WheelProtection.Extensions" Version="1.1.0" />
+
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+</Project>

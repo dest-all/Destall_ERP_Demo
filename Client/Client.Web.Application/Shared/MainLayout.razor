@@ -1,0 +1,76 @@
+﻿@using Client.Web.View.Components.Feed
+@using Client.Web.View.Services;
+@using DestallMaterials.Blazor.Services;
+@using MudBlazor;
+@inherits LayoutComponentBase
+
+@inject IAccountManager account
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+
+<MudLayout Class="app-root">
+    <MudAppBar Elevation="0">
+        @{
+            var color = account.Authorised ? Color.Inherit : Color.Transparent;
+            bool disabled = !account.Authorised;
+            var icon = account.Authorised ? Icons.Material.Filled.Menu : "";
+        }
+        <MudIconButton Icon="@icon" Color="color" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" Disabled=disabled />
+
+        <Client.Web.View.Components.Login.UserAvatar Style="color: white; margin-left:15px" User="@account.User">
+            <Client.Web.View.Components.Login.LoginCard Style="position: absolute; margin-top: 5px" />
+        </Client.Web.View.Components.Login.UserAvatar>
+
+        <MudSpacer />
+    </MudAppBar>
+
+    @if (account.Authorised)
+    {
+        <MudDrawer @bind-Open="_drawerOpen" Elevation="1" Anchor="Anchor.Left">
+            <MudDrawerHeader>
+                <MudText Typo="Typo.h6">Destall ERP</MudText>
+            </MudDrawerHeader>
+            <NavMenu />
+        </MudDrawer>
+    }
+    
+    <FeedDrawer Render=account.Authorised />
+
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large" Class="my-16 pt-16">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+
+
+</MudLayout>
+
+@code {
+
+    bool _drawerOpen = true;
+
+    bool _openEnd;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    void ToggleEndDrawer()
+    {
+        _openEnd = !_openEnd;
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        if (firstRender)
+        {
+            account.SubscribeForPermissionsChange(p => StateHasChanged());
+        }
+    }
+}

@@ -1,0 +1,100 @@
+﻿@using Client.Communication;
+@using Client.Web.View.Services;
+@using DestallMaterials.WheelProtection.Extensions.Enumerables;
+@using DestallMaterials.WheelProtection.Extensions.Tasks;
+@using Protocol.Models.Transportables;
+
+@using static Common.Phrases.Custom.FinancialReports;
+@using static Common.Phrases.Entities;
+
+@inject IBusinessServerActionInvokersNet client
+@inject IReferenceClickHandler clicker
+
+<h3>@Common.Phrases.Custom.FinancialReports.AccountsReceivable</h3>
+
+@if (Items is null)
+{
+    return;
+}
+
+@if (Items.IsEmpty())
+{
+    <h5>
+        @(NoDueIncomingPayments)
+    </h5>
+    return;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+                @Incoming_Order
+            </td>
+            <td>
+                @TotalSum
+            </td>
+            <td>
+                @TotalSum
+            </td>
+            <td>
+                @Left
+            </td>
+            <td>
+                @RelatedPayments
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Items)
+        {
+            <tr>
+                <td>
+                    <Client.Web.View.Components.Entities.EntityReference Reference=order.IncomingOrder OnClick="clicker.HandleAsync" />
+                </td>
+                <td>
+                    @order.TotalValue
+                </td>
+                <td>
+                    @order.ReceivedPayment
+                </td>
+                <td>
+                    @order.LeftToReceive
+                </td>
+                <td>
+                    @if (order.IncomingPayments.HasContent())
+                    {
+                        bool isFirst = true;
+                        @foreach (var reference in order.IncomingPayments)
+                        {
+                            if (!isFirst)
+                            {
+                                <br />
+                            } else
+                            {
+                                isFirst = false;
+                            }
+                            <Client.Web.View.Components.Entities.EntityReference OnClick="clicker.HandleAsync" Reference=reference />
+                        }
+                    } else
+                    {
+                        <span>-</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    IReadOnlyList<IUnsettledOrderReadOnlyModel> Items = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        client.Reports.Finances.GetUnsettledIncomingOrders.CallAsync().Then(items => {
+            Items = items;
+            StateHasChanged();
+        }).Forget();
+        await base.OnInitializedAsync();
+    }
+}

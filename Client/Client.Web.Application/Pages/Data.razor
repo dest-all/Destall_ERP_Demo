@@ -1,0 +1,62 @@
+﻿@page "/data/{Entity}"
+@using Client.Web.View.Services;
+@using DestallMaterials.WheelProtection.Extensions.Strings;
+@using MudBlazor;
+
+@inject IAccountManager account
+
+@if (PermissionsChecker is null)
+{
+    <Client.Web.Application.Components.NothingHere />
+    return;
+}
+
+@if (PermissionsChecker.Read == false)
+{
+    <Client.Web.Application.Components.AccessDenied />
+    return;
+}
+
+@{
+    var table = Sections.LoadedTable.FirstOrDefault(kv => kv.Key.ToLower().Replace(" ", "").Contains(Entity.ToLower()));
+}
+
+@if (table.Value == default)
+{
+    <Client.Web.Application.Components.NothingHere />
+    return;
+}
+
+@table.Value(true, account.Permissions)
+
+@code {
+
+    [Parameter]
+    public string Entity { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if (firstRender)
+        {
+            account.SubscribeForPermissionsChange(async (p) => StateHasChanged());
+        }
+    }
+
+    PermissionsChecker PermissionsChecker
+    {
+        get
+        {
+            try
+            {
+                return PermissionsChecker.For(Entity, account.Permissions);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+    }
+    
+}
+
